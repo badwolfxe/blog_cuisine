@@ -16,7 +16,7 @@ function register_my_menu() {
 
 /*
 * On utilise une fonction pour créer notre custom post type 'Séries TV'
-*/
+*/ add_theme_support( 'post-thumbnails' ); 
 
 function wpm_custom_post_type() {
 
@@ -32,6 +32,7 @@ function wpm_custom_post_type() {
 	
 	$args = array(
 		'label'               => __( 'Nos Recettes'),
+           
 		// On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', ),
 		/* 
