@@ -16,7 +16,15 @@ function register_my_menu() {
 
 /*
 * On utilise une fonction pour créer notre custom post type 'Séries TV'
-*/ add_theme_support( 'post-thumbnails' ); 
+*/ 
+
+add_theme_support( 'post-thumbnails' ); 
+
+add_theme_support( 'custom-logo' );
+
+add_theme_support( 'custom-header' );
+
+add_theme_support( 'custom-background' );
 
 function wpm_custom_post_type() {
 
