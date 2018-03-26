@@ -11,15 +11,26 @@ function register_my_menu() {
 
 /* Custom Post Type */
 
+
+/* Custom Post Type */
+
 add_action('init', 'cpt');
 function cpt() {
     register_post_type('recette', [
         'labels' => [
-            'name' => 'Nos Recettes',
+            'name' => 'Nos Recette',
             'singular_name' => 'Recette'
         ],
         'public' => true,
         'has_archive' => true,
         'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
+    ]);
+
+    register_taxonomy('categorie', ['dessert'], [
+        'labels' => [
+            'name' => 'Desserts',
+            'singular_name' => 'Dessert'
+        ],
+        'hierarchical' => true
     ]);
 }
