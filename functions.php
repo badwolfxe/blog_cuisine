@@ -6,8 +6,9 @@
 add_action( 'after_setup_theme', 'register_my_menu' );
 function register_my_menu() {
   register_nav_menu( 'menu-header', __( 'Menu Header', 'blogcuisine' ) );
+  register_nav_menu( 'menu-secondaire', __( 'Menu Secondaire', 'blogcuisine' ) );
 }
-    
+
 /* Custom Post Type */
 
 add_action('init', 'cpt');
