@@ -4,6 +4,8 @@
     
     <h1>Hello</h1>
     
+    if ( ( is_home() && $query->is_main_query() ) || is_feed() )
+    
 <?php if (have_posts()) : ?>
 
     <section class="grid grid-4">
