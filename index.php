@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+
+je suis dans la home 
+
+<?php get_taxonomy( $taxonomy ) ?>
 <div class="container">
 <?php if (have_posts()) : ?>
     

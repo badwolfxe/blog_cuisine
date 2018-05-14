@@ -54,7 +54,7 @@ function wpm_custom_post_type() {
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', ),
 		/* 
 		* Différentes options supplémentaires
-		*/'taxonomies' => array('category', 'post_tag'),
+		*/
 		'hierarchical'        => true,
 		'public'              => true,
 		'has_archive'         => true,
@@ -66,5 +66,20 @@ function wpm_custom_post_type() {
 	register_post_type( 'recette', $args );
 
 }
+
+add_action('init', 'cpt');
+function cpt() {
+
+    register_taxonomy('type', ['recette'], [
+        'labels' => [
+            'name' => 'Types',
+            'singular_name' => 'type'
+        ],
+        'hierarchical' => true
+    ]);
+    
+
+}
+
 
 add_action( 'init', 'wpm_custom_post_type', 0 );

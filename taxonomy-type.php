@@ -2,7 +2,7 @@
 <div class="container">
 
 
-    <h1>Hello Voici toutes nos recettes</h1>
+    <h1>Hello taxo</h1>
 
     <?php $the_query = new WP_Query(array('post_type' => 'recette')); ?>
     <?php if ($the_query->have_posts()) : ?>
