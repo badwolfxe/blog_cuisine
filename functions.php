@@ -54,7 +54,7 @@ function wpm_custom_post_type() {
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', ),
 		/* 
 		* Différentes options supplémentaires
-		*/	
+		*/'taxonomies' => array('category', 'post_tag'),
 		'hierarchical'        => true,
 		'public'              => true,
 		'has_archive'         => true,
