@@ -13,8 +13,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 body, html {
     height: 100%;
-    padding: 0px;
-    margin: 0;
+    padding: 0px!important;
+    margin: 0px!important;
     font-family: sans-serif;
     color: #000;
     padding: 20px 30px;
@@ -54,8 +54,27 @@ li {
 
 /* Menu */
 
-ul li {
-    list-style-type: none;
+.menu-menu-header-container {
+    
+}
+
+.menu-menu-header-container ul li {
+    list-style-type: none!important;
+}
+
+.menu-menu-header-container li {
+    display: inline-block;
+}
+
+.menu-menu-header-container ul.sub-menu {
+    display: none;
+}
+
+
+/* Header */
+
+.menu-menu-header-container {
+    padding: 20px;
 }
 
 /* Article */
