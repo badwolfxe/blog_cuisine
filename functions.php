@@ -32,6 +32,9 @@ add_theme_support( 'custom-header' );
 
 add_theme_support( 'custom-background' );
 
+
+/* Custom Post Type */
+
 function wpm_custom_post_type() {
 
 	// On rentre les différentes dénominations de notre custom post type qui seront affichées dans l'administration
@@ -52,7 +55,7 @@ function wpm_custom_post_type() {
 		/* 
 		* Différentes options supplémentaires
 		*/	
-		'hierarchical'        => false,
+		'hierarchical'        => true,
 		'public'              => true,
 		'has_archive'         => true,
 		'rewrite'			  => array( 'slug' => 'recette'),
