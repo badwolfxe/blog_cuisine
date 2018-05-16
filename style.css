@@ -24,6 +24,12 @@ body, html {
 a {
     text-decoration: none;
     color: #000;
+    transition: all, .2s;
+}
+
+a:hover {
+    color: #FF7B74;
+    transition: all, .2s;
 }
 
 ul {
@@ -91,7 +97,7 @@ li {
     height: 100%;
 }
 
-menu-header{
+.menu-header{
     padding: 20px;
     width: 100%;
     background: white;
@@ -99,26 +105,26 @@ menu-header{
     text-align: center;
 }
 
-menu-header ul li {
+.menu-header ul li {
     list-style-type: none!important;
 }
 
-menu-header li {
+.menu-header li {
     display: inline-block;
 }
 
-menu-header ul.sub-menu {
+.menu-header ul.sub-menu {
     display: none;
 }
 
-menu-header ul li:after {
+.menu-header ul li:after {
     content: "•";
     display: inline-block;
     margin-left: 10px;
     margin-right: 5px;
 }
 
-menu-header ul li:last-child:after {
+.menu-header ul li:last-child:after {
     content: "•";
     display: none;
 }
@@ -147,3 +153,44 @@ section.home-recipe {
 -ms-box-flex:  0;
 box-flex:  0; 
 }
+
+.img-recipe {
+    height: 180px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: all, .2s;
+    background: rgba(0,0,0,0);
+}
+
+.img-recipe:hover .overlay {
+    background: rgba(0,0,0,.5);
+    transition: all, .2s;
+}
+
+.overlay p {
+    margin: auto;
+    text-align: center;
+    color: #FFF;
+    opacity: 0;
+    transition: all, .5s;
+}
+
+.img-recipe:hover .overlay p {
+    opacity: 1;
+    transition: all, .5s;
+}
+
+.home-recipe img {
+    width: 100%;
+    height: auto!important;
+}
+

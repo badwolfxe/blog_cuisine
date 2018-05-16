@@ -22,7 +22,7 @@
 
 
         <section class="home-recipe">
-            <h3>Hello Voici toutes nos recettes</h3>
+            <h3>Voici toutes nos recettes</h3>
 
 
             <section class="grid grid-2">
@@ -31,7 +31,7 @@
 
                     <article>
                         <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('medium'); ?>
+                            <div class="img-recipe"><div class="overlay"><p>Lire la recette</p></div><?php the_post_thumbnail('medium'); ?></div>
                             <h2><?php the_title(); ?></h2>
                             <p><?php the_excerpt(); ?></p>
                         </a>
