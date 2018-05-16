@@ -1,15 +1,18 @@
 <?php get_header(); ?>
 <div class="container">
 
+    <?php
+    /** @var WP_Term type */
+    $type = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+    ?>
 
-    <h1>Hello taxo</h1>
+    <h1>Recettes <?php echo $type->name; ?></h1>
 
-    <?php $the_query = new WP_Query(array('post_type' => 'recette')); ?>
-    <?php if ($the_query->have_posts()) : ?>
+    <?php if (have_posts()) : ?>
 
         <section class="grid grid-4">
-            <?php while ($the_query->have_posts()) : ?>
-                <?php $the_query->the_post(); ?>
+            <?php while (have_posts()) : ?>
+                <?php the_post(); ?>
 
                 <article>
                     <a href="<?php the_permalink(); ?>">
