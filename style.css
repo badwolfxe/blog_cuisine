@@ -52,6 +52,13 @@ li {
     margin: 20px 0;
 }
 
+/* Header logo */
+
+.logo a.custom-logo-link img {
+    margin: 0 auto;
+    display: block;
+}
+
 /* Menu */
 
 .background-header {
@@ -69,13 +76,12 @@ li {
     height: 100%;
 }
 
-.background-header .menu-menu-header-container {
+.menu-menu-header-container {
     padding: 20px;
-    position: absolute;
-    top: 0px;
     width: 100%;
     background: white;
     border-bottom: 1px solid #FFF;
+    text-align: center;
 }
 
 .menu-menu-header-container ul li {
