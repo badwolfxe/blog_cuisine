@@ -7,13 +7,18 @@ function theme_enqueue_styles() {
 }
 
 
-/* Création du Menu Header */
+/* Création des Menus */
 
-add_action( 'after_setup_theme', 'register_my_menu' );
-function register_my_menu() {
-  register_nav_menu( 'menu-header', __( 'Menu Header', 'blogcuisine' ) );
-  register_nav_menu( 'menu-secondaire', __( 'Menu Secondaire', 'blogcuisine' ) );
+
+function wpb_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'menu-header' => __( 'Menu Header' ),
+      'menu-secondaire' => __( 'Menu Secondaire' )
+    )
+  );
 }
+add_action( 'init', 'wpb_custom_new_menu' );
 
 add_theme_support( 'custom-logo' );
 

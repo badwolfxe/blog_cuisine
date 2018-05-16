@@ -1,5 +1,9 @@
     
-<?php wp_nav_menu( array( 'blogcuisine' => 'menu-secondaire' ) ); ?>
+<?php
+wp_nav_menu( array( 
+    'theme_location' => 'menu-secondaire', 
+    'container_class' => 'footer-menu' ) ); 
+?>
 
     <?php wp_footer(); ?>
 </body>
