@@ -91,7 +91,7 @@ li {
     height: 100%;
 }
 
-.menu-menu-header-container {
+menu-header{
     padding: 20px;
     width: 100%;
     background: white;
@@ -99,26 +99,26 @@ li {
     text-align: center;
 }
 
-.menu-menu-header-container ul li {
+menu-header ul li {
     list-style-type: none!important;
 }
 
-.menu-menu-header-container li {
+menu-header li {
     display: inline-block;
 }
 
-.menu-menu-header-container ul.sub-menu {
+menu-header ul.sub-menu {
     display: none;
 }
 
-.menu-menu-header-container ul li:after {
+menu-header ul li:after {
     content: "•";
     display: inline-block;
     margin-left: 10px;
     margin-right: 5px;
 }
 
-.menu-menu-header-container ul li:last-child:after {
+menu-header ul li:last-child:after {
     content: "•";
     display: none;
 }

@@ -14,7 +14,12 @@
             <?php echo (get_custom_logo()); ?>
         </div>
         
-        <?php wp_nav_menu( array( 'blogcuisine' => 'menu-header' ) ); ?>
+        
+        <?php
+wp_nav_menu( array( 
+    'theme_location' => 'menu-secondaire', 
+    'container_class' => 'menu-header' ) ); 
+?>
         
         <div class="background-header">
         <div class="overlay">
