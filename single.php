@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <main class="container">
     <?php if (have_posts()) : ?>
 

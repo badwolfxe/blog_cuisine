@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 
-<section class="introduction-homepage">
+ <div class="background-header">
+        <div class="overlay"></div>
+        <div class="hero">
+        <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" />
+        
+        <section class="introduction-homepage">
     <?php if (have_posts()) : ?>
 
         <?php while (have_posts()) : ?>
@@ -11,9 +16,9 @@
 
         <?php endwhile; ?>
 
-    <?php endif; ?>
-
-</section>
+    <?php endif; ?> 
+            </div>
+ </div>
 
 <div class="container">
 
@@ -47,7 +52,7 @@
     </section>
 
     <div class="sidebar">
-        <p>Sidebar</p>
+        <?php dynamic_sidebar( 'home_right_1' ); ?>
     </div>
 
 </div>

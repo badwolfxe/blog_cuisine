@@ -80,6 +80,44 @@ li {
     display: block;
 }
 
+header {
+    position: relative;
+}
+
+.background-header .overlay {
+    background: rgba(0,0,0,.5);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.introduction-homepage {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #FFF;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.introduction-homepage h1 {
+    font-family: Lora, serif;
+    text-transform: uppercase;
+    font-size: 3em;
+    line-height: 2em;
+    margin: 0;
+}
+
+.introduction-homepage h2 {
+    font-family: Lora, serif;
+    font-size: 1.5em;
+    line-height: 1em;
+    margin: 0;
+}
+
+
 /* Menu */
 
 .background-header {
@@ -90,12 +128,9 @@ li {
 
 .background-header img {
     width: 100%;
+        height: 100%;
 }
 
-.background-header .overlay {
-    background-color: rgba(0,0,0,.5);
-    height: 100%;
-}
 
 .menu-header{
     padding: 20px;
@@ -137,7 +172,7 @@ li {
 }
 
 
-section.home-recipe {
+.home-recipe section.home-recipe {
     width: 70%;
  -webkit-box-flex: 1;
  -moz-box-flex: 1;
@@ -146,7 +181,7 @@ section.home-recipe {
     
 }
 
-.sidebar {
+.home-recipe .sidebar {
     width: 30%;
 -webkit-box-flex:  0;
 -moz-box-flex:  0;
@@ -154,14 +189,13 @@ section.home-recipe {
 box-flex:  0; 
 }
 
-.img-recipe {
+.home-recipe .img-recipe {
     height: 180px;
     display: block;
     overflow: hidden;
     position: relative;
 }
-
-.overlay {
+.home-recipe .overlay {
     position: absolute;
     top: 0;
     display: flex;
@@ -171,12 +205,12 @@ box-flex:  0;
     background: rgba(0,0,0,0);
 }
 
-.img-recipe:hover .overlay {
+.home-recipe .img-recipe:hover .overlay {
     background: rgba(0,0,0,.5);
     transition: all, .2s;
 }
 
-.overlay p {
+.home-recipe .overlay p {
     margin: auto;
     text-align: center;
     color: #FFF;
@@ -184,7 +218,7 @@ box-flex:  0;
     transition: all, .5s;
 }
 
-.img-recipe:hover .overlay p {
+.home-recipe .img-recipe:hover .overlay p {
     opacity: 1;
     transition: all, .5s;
 }
@@ -193,4 +227,31 @@ box-flex:  0;
     width: 100%;
     height: auto!important;
 }
+
+
+/* Page recette */
+
+ul.info_recipe {
+    margin-bottom: 20px;
+}
+
+
+ul.info_recipe li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+ul.info_recipe li:first-child:before {
+    display: none;
+}
+
+ul.info_recipe li:before {
+    display: inline-block;
+    content: "•";
+    margin-right: 10px;
+    
+}
+
+
 
