@@ -11,6 +11,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+
+/* Variable */
+
+:root {
+    --main-orange:  #ff9971; 
+}
+
+
 body, html {
     height: 100%;
     padding: 0px!important;
@@ -28,7 +37,7 @@ a {
 }
 
 a:hover {
-    color: #FF7B74;
+    color: var(--main-orange);
     transition: all, .2s;
 }
 
@@ -238,7 +247,7 @@ article img {
 
 
 .info-recipe {
-    background: #ff9971;
+    background: var(--main-orange);
     color: #FFF;
     padding: 20px;
     min-height: 120px;
@@ -263,7 +272,7 @@ article  .info-recipe:hover {
 }
 
 .sidebar h2 {
-    background: #ff9971;
+    background: var(--main-orange);
     padding: 5px;
     color: #FFF;
 }
@@ -303,7 +312,7 @@ ul.info_recipe li:before {
 .recette-template-default article ul li:before {
     display: inline-block;
     content: "◊";
-    color: #ff9971;
+    color: var(--main-orange);
     margin-left: 20px;
     margin-right: 10px;
     font-weigh: 900;

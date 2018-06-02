@@ -14,6 +14,7 @@
                 <?php the_post_thumbnail('medium'); ?>
                 <h2><?php the_title(); ?></h2>
                 <p><?php the_excerpt(); ?></p>
+                 <p><?php the_content(); ?></p>
                 </a>
             </article>
 
@@ -24,7 +25,6 @@
     <p>Aucun contenu à afficher !</p>
 <?php endif; ?>
 </div>
-
 <?php 
 
 $images = get_field('galerie_photo');
