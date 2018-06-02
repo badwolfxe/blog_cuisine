@@ -15,12 +15,14 @@
                 <?php the_post(); ?>
 
                 <article>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('medium'); ?>
-                        <h2><?php the_title(); ?></h2>
-                        <p><?php the_excerpt(); ?></p>
-                    </a>
-                </article>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="img-recipe"><div class="overlay"><p>Lire la recette</p></div><?php the_post_thumbnail('medium'); ?></div>
+                            <div class="info-recipe">
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_excerpt(); ?></p>
+                            </div>
+                        </a>
+                    </article>
 
             <?php endwhile; ?>
         </section>

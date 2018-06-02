@@ -27,8 +27,6 @@ wp_nav_menu( array(
         
     </div>
         
-        
-        
     </header>
 
     

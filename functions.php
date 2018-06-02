@@ -3,8 +3,10 @@
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-
+    wp_enqueue_script( 'jquery', get_template_directory_uri() . '/jquery.js', array( 'jquery' ));
+    wp_enqueue_script( 'script', get_template_directory_uri() . '/script.js', array( 'jquery' ) );
 }
+
 
 
 /* Création des Menus */
@@ -18,6 +20,10 @@ function wpb_custom_new_menu() {
     )
   );
 }
+
+
+/* Add custom module dans le blog */
+
 add_action( 'init', 'wpb_custom_new_menu' );
 
 add_theme_support( 'custom-logo' );
@@ -30,7 +36,7 @@ add_theme_support( 'custom-header' );
 
 add_theme_support( 'custom-background' );
 
-/* Widget */
+/* Widget Sidebar */
 
 function arphabet_widgets_init() {
 
@@ -50,32 +56,20 @@ add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 function wpm_custom_post_type() {
 
-	// On rentre les différentes dénominations de notre custom post type qui seront affichées dans l'administration
 	$labels = array(
-		// Le nom au pluriel
 		'name'                => _x( 'Nos Recettes', 'Post Type General Name'),
-		// Le nom au singulier
 		'singular_name'       => _x( 'Recette', 'Post Type Singular Name'),
 	);
 	
-	// On peut définir ici d'autres options pour notre custom post type
-	
 	$args = array(
 		'label'               => __( 'Nos Recettes'),
-           
-		// On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', ),
-		/* 
-		* Différentes options supplémentaires
-		*/
 		'hierarchical'        => true,
 		'public'              => true,
 		'has_archive'         => true,
 		'rewrite'			  => array( 'slug' => 'recette'),
 
 	);
-	
-	// On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
 	register_post_type( 'recette', $args );
 
 }
@@ -93,6 +87,5 @@ function cpt() {
     
 
 }
-
 
 add_action( 'init', 'wpm_custom_post_type', 0 );

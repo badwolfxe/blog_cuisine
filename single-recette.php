@@ -16,6 +16,8 @@
             <li>Facilité: <?php the_field('facilite') ;?></li>
         </ul>
         
+       
+        
          
                 <?php the_post_thumbnail('medium'); ?>
                 <p><?php the_content(); ?></p>

@@ -27,9 +27,7 @@
 
 
         <section class="home-recipe">
-            <h3>Voici toutes nos recettes</h3>
-
-
+            
             <section class="grid grid-2">
                 <?php while ($the_query->have_posts()) : ?>
                     <?php $the_query->the_post(); ?>
@@ -37,8 +35,10 @@
                     <article>
                         <a href="<?php the_permalink(); ?>">
                             <div class="img-recipe"><div class="overlay"><p>Lire la recette</p></div><?php the_post_thumbnail('medium'); ?></div>
+                            <div class="info-recipe">
                             <h2><?php the_title(); ?></h2>
                             <p><?php the_excerpt(); ?></p>
+                            </div>
                         </a>
                     </article>
 
@@ -57,6 +57,43 @@
 
 </div>
 
+<?php
+    // query for the about page
+    $your_query = new WP_Query( 'pagename=galerie-photo' );
+    // "loop" through query (even though it's just one page) 
+    while ( $your_query->have_posts() ) : $your_query->the_post();
+       
+    
+    
+    $images = get_field('galerie_photo');
+
+if( $images ): ?>
+<div id="slider">
+  <a  class="control_next">></a>
+  <a  class="control_prev"><</a>
+    <ul>
+        <?php foreach( $images as $image ): ?>
+            <li>
+                <a href="<?php echo $image['url']; ?>">
+                     <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+                </a>
+                <p><?php echo $image['caption']; ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+    
+    
+    <?php
+    endwhile;
+    // reset post data (important!)
+    wp_reset_postdata();
+?>
+
+
 <?php get_footer(); ?>
+
+
 
 
