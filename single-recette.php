@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<!-- Page d'une recette -->
 <div class="container">
 <?php if (have_posts()) : ?>
     
@@ -10,11 +10,27 @@
            <article>
         
         <h1> <?php the_title(); ?></h1>
-        
-        <ul class="info_recipe">
-            <li>Temps de préparation: <?php the_field('temps_de_preparation') ;?></li>
-            <li>Facilité: <?php the_field('facilite') ;?></li>
-        </ul>
+
+   
+<?php if( have_rows('informations_recette') ): ?>
+	<ul class="info_recipe">
+
+	<?php while( have_rows('informations_recette') ): the_row(); 
+
+		// vars
+		$intitule = get_sub_field('intitule_');
+		$valeur_intitue = get_sub_field('valeurs_de_lintitule_');
+
+		?>
+            
+            <li><?php echo $intitule; ?> : <?php echo $valeur_intitue; ?></li>
+          
+
+	<?php endwhile; ?>
+
+	</ul>
+
+<?php endif; ?>
         
        
         

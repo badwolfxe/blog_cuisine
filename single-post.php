@@ -1,9 +1,5 @@
-<?php
-/* Template Name: Page Contact */
-
-get_header();
-?>
-
+<?php get_header(); ?>
+<!-- Page d'un article de blog -->
 <main class="container">
     <?php if (have_posts()) : ?>
 
@@ -11,8 +7,9 @@ get_header();
             <?php the_post(); ?>
 
             <article>
-                <h2><?php the_title(); ?></h2>
-                <p><?php the_excerpt(); ?></p>
+                <?php the_post_thumbnail('small'); ?>
+                <h1><?php the_title(); ?></h1>
+                <p><?php the_content(); ?></p>
             </article>
 
         <?php endwhile; ?>
@@ -20,15 +17,6 @@ get_header();
     <?php else: ?>
         <p>Aucun contenu à afficher !</p>
     <?php endif; ?>
-
-    <form action="">
-        <p>
-            <label for="">Nom</label>
-            <input type="text">
-        </p>
-        <input type="submit">
-    </form>
-
 </main>
 
 <?php get_footer(); ?>

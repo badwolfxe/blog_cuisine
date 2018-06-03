@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<!-- Page liste de recette par type salé ou sucrée-->
 <div class="container">
 
     <?php

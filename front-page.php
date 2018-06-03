@@ -1,8 +1,6 @@
 <?php get_header(); ?>
-
-
-    
-    
+<!-- Page d'accueil -->
+ 
  <div class="background-header">
         <div class="overlay"></div>
         <div class="hero">
