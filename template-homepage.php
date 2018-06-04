@@ -1,3 +1,5 @@
+<?php /* Template Name: Homepage Recettes 2 Columns */ ?>
+
 <?php get_header(); ?>
 <!-- Page d'accueil -->
 

@@ -1,3 +1,5 @@
+<?php /* Template Name: Homepage Recettes One Column */ ?>
+
 <?php get_header(); ?>
 <!-- Page d'accueil -->
 
@@ -32,7 +34,7 @@
 
         <section class="home-recipe">
             
-            <section class="grid grid-2">
+            <section class="grid grid-1">
                 <?php while ($the_query->have_posts()) : ?>
                     <?php $the_query->the_post(); ?>
 
