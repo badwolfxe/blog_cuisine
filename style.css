@@ -81,6 +81,19 @@ li {
     margin: 20px 0;
 }
 
+.grid-flex {
+  display: flex;
+}
+
+
+.grid-flex-2  {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.droit {
+    order: 2;
+}
 
 /* Header logo */
 
@@ -142,7 +155,7 @@ header {
 
 
 .menu-header{
-    padding: 20px;
+    padding: 20px 0px;
     width: 100%;
     background: white;
     border-bottom: 1px solid #FFF;
@@ -426,4 +439,24 @@ a.control_next {
   margin: 10px auto;
   width: 160px;
   font-size: 18px;
+}
+
+/* Actualite */
+
+h1.actualite {
+    text-align: center;
+}
+
+.image-actualite img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-flex-2 {
+    margin: auto;
+}
+
+.grid-flex-2.information_actualite p,
+.grid-flex-2.information_actualite h2 {
+    padding: 0 40px;
 }

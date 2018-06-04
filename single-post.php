@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <!-- Page d'un article de blog -->
+
 <main class="container">
     <?php if (have_posts()) : ?>
 
