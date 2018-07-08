@@ -1,5 +1,7 @@
 <?php
 
+/* CSS - JS */
+
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -7,10 +9,7 @@ function theme_enqueue_styles() {
     wp_enqueue_script( 'script', get_template_directory_uri() . '/script.js', array( 'jquery' ) );
 }
 
-
-
-/* Création des Menus */
-
+/* Menus */
 
 function wpb_custom_new_menu() {
   register_nav_menus(
@@ -22,21 +21,23 @@ function wpb_custom_new_menu() {
 }
 
 
-/* Add custom module dans le blog */
+/* Add Custom Post Type */
 
 add_action( 'init', 'wpb_custom_new_menu' );
 
+/* Add Logo Administrable */
+
 add_theme_support( 'custom-logo' );
+
+/* Add Thumbails*/
 
 add_theme_support( 'post-thumbnails' ); 
 
-add_theme_support( 'custom-logo' );
+/* Add Custom Header Photo */
 
 add_theme_support( 'custom-header' );
 
-add_theme_support( 'custom-background' );
-
-/* Widget Sidebar */
+/* Add Widget Sidebar */
 
 function arphabet_widgets_init() {
 
@@ -54,6 +55,8 @@ add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 /* Custom Post Type */
 
+    /* Recettes + Conseils */
+
 function wpm_custom_post_type() {
 
 	$labels = array(
@@ -67,42 +70,64 @@ function wpm_custom_post_type() {
 		'hierarchical'        => true,
 		'public'              => true,
 		'has_archive'         => true,
+        'taxonomies'    => array(
+        'catgrecette'
+    ),
 		'rewrite'			  => array( 'slug' => 'recette'),
 
 	);
 	register_post_type( 'recette', $args );
-
-}
-
-add_action('init', 'cpt');
-function cpt() {
-
-    register_taxonomy('type', ['recette'], [
-        'labels' => [
-            'name' => 'Types',
-            'singular_name' => 'type'
-        ],
-        'hierarchical' => true
-    ]);
     
+    $labels = array(
+		'name'                => _x( 'Nos Conseils', 'Post Type General Name'),
+		'singular_name'       => _x( 'Conseil', 'Post Type Singular Name'),
+	);
+	
+	$args = array(
+		'label'               => __( 'Nos Conseils'),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', ),
+		'hierarchical'        => true,
+		'public'              => true,
+		'has_archive'         => true,
+		'rewrite'			  => array( 'slug' => 'conseil'),
+
+	);
+	register_post_type( 'conseil', $args );
 
 }
+
+/* Add Taxonomy Recettes */
 
 add_action( 'init', 'wpm_custom_post_type', 0 );
+
+// register news taxonomy
+register_taxonomy('catgrecette', 'wpm_custom_post_type', array(
+    'label'         => 'Types',
+    'labels'        => array(
+        'menu_name' => __('Types Recettes', 'NWCM')
+    ),
+    'rewrite'       => array(
+        'slug' => 'catgrecette'
+    ),
+    'hierarchical'  => true
+));
+
 
 
 /* AFC */
 
+    /* Ingrédients */
+
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
-	'key' => 'group_5b140c33595aa',
-	'title' => 'Informations sur la recette',
+	'key' => 'group_5b2ca9ba7b62e',
+	'title' => 'Ingrédients recette',
 	'fields' => array(
 		array(
-			'key' => 'field_5b140c44fc1c5',
-			'label' => 'informations recette',
-			'name' => 'informations_recette',
+			'key' => 'field_5b2ca9c3a6872',
+			'label' => 'Ingrédients recette',
+			'name' => 'ingredients_recette',
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
@@ -119,12 +144,12 @@ acf_add_local_field_group(array(
 			'button_label' => '',
 			'sub_fields' => array(
 				array(
-					'key' => 'field_5b140c58fc1c6',
-					'label' => 'Intitulé',
-					'name' => 'intitule_',
+					'key' => 'field_5b2ca9cda6873',
+					'label' => 'Ingrédients',
+					'name' => 'ingredients',
 					'type' => 'text',
 					'instructions' => '',
-					'required' => 0,
+					'required' => 1,
 					'conditional_logic' => 0,
 					'wrapper' => array(
 						'width' => '',
@@ -138,12 +163,12 @@ acf_add_local_field_group(array(
 					'maxlength' => '',
 				),
 				array(
-					'key' => 'field_5b140c6efc1c7',
-					'label' => 'Valeurs de l\'intitulé',
-					'name' => 'valeurs_de_lintitule_',
+					'key' => 'field_5b2ca9d7a6874',
+					'label' => 'Informations des ingrédients',
+					'name' => 'informations_des_ingredients',
 					'type' => 'text',
 					'instructions' => '',
-					'required' => 0,
+					'required' => 1,
 					'conditional_logic' => 0,
 					'wrapper' => array(
 						'width' => '',
@@ -178,21 +203,21 @@ acf_add_local_field_group(array(
 	'description' => '',
 ));
 
-
-
 endif;
+
+    /* Conseils */
 
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
-	'key' => 'group_5b152bd4637d5',
-	'title' => 'Actualité',
+	'key' => 'group_5b3bd7027705e',
+	'title' => 'Conseils',
 	'fields' => array(
 		array(
-			'key' => 'field_5b152bdada877',
-			'label' => 'actualité',
-			'name' => 'actualite_',
-			'type' => 'repeater',
+			'key' => 'field_5b3bd70b62ffb',
+			'label' => 'gauche droite',
+			'name' => 'gauche_droite',
+			'type' => 'radio',
 			'instructions' => '',
 			'required' => 1,
 			'conditional_logic' => 0,
@@ -201,107 +226,86 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'collapsed' => '',
-			'min' => 0,
-			'max' => 0,
-			'layout' => 'table',
-			'button_label' => '',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_5b153bdd00c2f',
-					'label' => 'Titre',
-					'name' => 'titre_',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_5b152be9da878',
-					'label' => 'image',
-					'name' => 'image',
-					'type' => 'image',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'return_format' => 'array',
-					'preview_size' => 'full',
-					'library' => 'all',
-					'min_width' => '',
-					'min_height' => '',
-					'min_size' => '',
-					'max_width' => '',
-					'max_height' => '',
-					'max_size' => '',
-					'mime_types' => '',
-				),
-				array(
-					'key' => 'field_5b152c01da879',
-					'label' => 'Contenu de l\'actualité',
-					'name' => 'contenu_de_lactualite',
-					'type' => 'textarea',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'maxlength' => '',
-					'rows' => '',
-					'new_lines' => '',
-				),
-				array(
-					'key' => 'field_5b153132bbc35',
-					'label' => 'Gauche ou Droite',
-					'name' => 'gauche_droite',
-					'type' => 'radio',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'choices' => array(
-						'gauche' => 'Gauche',
-						'droite' => 'Droite',
-					),
-					'allow_null' => 0,
-					'other_choice' => 0,
-					'save_other_choice' => 0,
-					'default_value' => '',
-					'layout' => 'vertical',
-					'return_format' => 'value',
-				),
+			'choices' => array(
+				'gauche' => 'Gauche',
+				'droite' => 'Droite',
 			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'save_other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'vertical',
+			'return_format' => 'value',
+		),
+		array(
+			'key' => 'field_5b3c7909cf1b3',
+			'label' => 'image',
+			'name' => 'image',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'url',
+			'preview_size' => 'medium',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_5b3c791acf1b4',
+			'label' => 'Titre',
+			'name' => 'titre',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5b3c7924cf1b5',
+			'label' => 'Description',
+			'name' => 'description',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
 		),
 	),
 	'location' => array(
 		array(
 			array(
-				'param' => 'page',
+				'param' => 'post_type',
 				'operator' => '==',
-				'value' => '102',
+				'value' => 'conseil',
 			),
 		),
 	),
@@ -317,4 +321,57 @@ acf_add_local_field_group(array(
 
 endif;
 
+    /* Slider Galerie Image Homepage */
 
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5b3d0a9f611db',
+	'title' => 'Galerie',
+	'fields' => array(
+		array(
+			'key' => 'field_5b3d0abda14e0',
+			'label' => 'galerie slider image',
+			'name' => 'galerie_slider_image',
+			'type' => 'gallery',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'min' => '',
+			'max' => '',
+			'insert' => 'append',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'page',
+				'operator' => '==',
+				'value' => '9',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;

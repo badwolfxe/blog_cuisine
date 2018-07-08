@@ -1,17 +1,16 @@
 <?php get_header(); ?>
 <!-- Page liste de recette par type salé ou sucrée-->
-<div class="container">
-
+<div class="container taxonomy-recette" id="page-categorie-recette">
     <?php
     /** @var WP_Term type */
     $type = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
     ?>
 
-    <h1>Recettes <?php echo $type->name; ?></h1>
-
     <?php if (have_posts()) : ?>
 
-        <section class="grid grid-4">
+        <section class="conteneur">
+            
+            <h1>Recettes <?php echo $type->name; ?></h1>
             <?php while (have_posts()) : ?>
                 <?php the_post(); ?>
 

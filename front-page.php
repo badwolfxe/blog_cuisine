@@ -1,92 +1,112 @@
 <?php get_header(); ?>
-<!-- Page d'accueil -->
 
- <div class="background-header">
-        <div class="overlay"></div>
-        <div class="hero">
+<?php /*
+Template Name: Homepage Simple
+*/
+
+?>
+<section class="background-header">
+    <div class="overlay"></div>
+    <div class="hero">
         <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" />
-        
-        <section class="introduction-homepage">
-<?php
+
+        <div class="introduction-homepage">
+            <?php
     // "loop" through query (even though it's just one page) 
     while (have_posts() ) : the_post(); 
     ?>
-            <h1><?php the_title(); ?></h1>
-            <h2><?php the_content(); ?></h2>
+                <h1>
+                    <?php the_title(); ?>
+                </h1>
+                <h2>
+                    <?php the_content(); ?>
+                </h2>
 
-        <?php
+                <?php
     endwhile;
     // reset post data (important!)
     wp_reset_postdata();
 ?>
+        </div>
+    </div>
+</section>
 
-            </div>
- </div>
 
-
-<div class="container">
+<section class="container">
 
     <?php $the_query = new WP_Query(array('post_type' => 'recette')); ?>
     <?php if ($the_query->have_posts()) : ?>
 
 
-        <section class="home-recipe">
-            
-            <section class="grid grid-2">
-                <?php while ($the_query->have_posts()) : ?>
-                    <?php $the_query->the_post(); ?>
+    <div class="home-recipe">
 
-                    <article>
-                        <a href="<?php the_permalink(); ?>">
-                            <div class="img-recipe"><div class="overlay"><p>Lire la recette</p></div><?php the_post_thumbnail('medium'); ?></div>
-                            <div class="info-recipe">
-                            <h2><?php the_title(); ?></h2>
-                            <p><?php the_excerpt(); ?></p>
-                            </div>
-                        </a>
-                    </article>
+        <div class="conteneur">
+            <?php while ($the_query->have_posts()) : ?>
+            <?php $the_query->the_post(); ?>
 
-                <?php endwhile; ?>
-            </section>
+            <article>
+                <a href="<?php the_permalink(); ?>">
+                    <div class="img-recipe">
+                        <div class="overlay">
+                            <p>Lire la recette</p>
+                        </div>
+                        <?php the_post_thumbnail('medium'); ?>
+                    </div>
+                    <div class="info-recipe">
+                        <h3>
+                            <?php the_title(); ?>
+                        </h3>
+                        <p>
+                            <?php the_excerpt(); ?>
+                        </p>
+                    </div>
+                </a>
+            </article>
+
+            <?php endwhile; ?>
+        </div>
 
         <?php else: ?>
-            <p>Aucun contenu à afficher !</p>
+        <p>Aucun contenu à afficher !</p>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
-    </section>
+    </div>
+
 
     <div class="sidebar">
         <?php dynamic_sidebar( 'home_right_1' ); ?>
     </div>
 
-</div>
+</section>
 
-<?php
-    // "loop" through query (even though it's just one page) 
+<!-- Slider -->
+
+<?php 
     while (have_posts() ) : the_post();
        
-    
-    
-    $images = get_field('galerie_homepage');
+    $images = get_field('galerie_slider_image');
 
 if( $images ): ?>
-<div id="slider">
-  <a  class="control_next">></a>
-  <a  class="control_prev"><</a>
-    <ul>
-        <?php foreach( $images as $image ): ?>
-            <li>
-                <a href="<?php echo $image['url']; ?>">
+    <div id="slider">
+        <a class="control_next">></a>
+        <a class="control_prev">
+            <</a>
+                <ul>
+                    <?php foreach( $images as $image ): ?>
+                    <li>
+                        <a href="<?php echo $image['url']; ?>">
                      <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                 </a>
-                <p><?php echo $image['caption']; ?></p>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-</div>
-<?php endif; ?>
-    
-    
+                        <p>
+                            <?php echo $image['caption']; ?>
+                        </p>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+    </div>
+    <?php endif; ?>
+
+
     <?php
     endwhile;
     // reset post data (important!)
@@ -94,8 +114,4 @@ if( $images ): ?>
 ?>
 
 
-<?php get_footer(); ?>
-
-
-
-
+        <?php get_footer(); ?>

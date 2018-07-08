@@ -19,5 +19,4 @@
         <p>Aucun contenu à afficher !</p>
     <?php endif; ?>
 </main>
-
 <?php get_footer(); ?>
