@@ -205,121 +205,6 @@ acf_add_local_field_group(array(
 
 endif;
 
-    /* Conseils */
-
-if( function_exists('acf_add_local_field_group') ):
-
-acf_add_local_field_group(array(
-	'key' => 'group_5b3bd7027705e',
-	'title' => 'Conseils',
-	'fields' => array(
-		array(
-			'key' => 'field_5b3bd70b62ffb',
-			'label' => 'gauche droite',
-			'name' => 'gauche_droite',
-			'type' => 'radio',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'gauche' => 'Gauche',
-				'droite' => 'Droite',
-			),
-			'allow_null' => 0,
-			'other_choice' => 0,
-			'save_other_choice' => 0,
-			'default_value' => '',
-			'layout' => 'vertical',
-			'return_format' => 'value',
-		),
-		array(
-			'key' => 'field_5b3c7909cf1b3',
-			'label' => 'image',
-			'name' => 'image',
-			'type' => 'image',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'url',
-			'preview_size' => 'medium',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => '',
-		),
-		array(
-			'key' => 'field_5b3c791acf1b4',
-			'label' => 'Titre',
-			'name' => 'titre',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5b3c7924cf1b5',
-			'label' => 'Description',
-			'name' => 'description',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'conseil',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => 1,
-	'description' => '',
-));
-
-endif;
 
     /* Slider Galerie Image Homepage */
 
@@ -361,6 +246,172 @@ acf_add_local_field_group(array(
 				'param' => 'page',
 				'operator' => '==',
 				'value' => '9',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5b3bbb5421ae5',
+	'title' => 'Indications recettes',
+	'fields' => array(
+		array(
+			'key' => 'field_5b3bbb82ac3b9',
+			'label' => 'Temps',
+			'name' => 'temps',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5b3bbb8bac3ba',
+			'label' => 'Facilité',
+			'name' => 'facilite',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5b3bbb97ac3bb',
+			'label' => 'Personnes',
+			'name' => 'personnes',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'recette',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5b3bbb5421ae5',
+	'title' => 'Indications recettes',
+	'fields' => array(
+		array(
+			'key' => 'field_5b3bbb82ac3b9',
+			'label' => 'Temps',
+			'name' => 'temps',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5b3bbb8bac3ba',
+			'label' => 'Facilité',
+			'name' => 'facilite',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5b3bbb97ac3bb',
+			'label' => 'Personnes',
+			'name' => 'personnes',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'recette',
 			),
 		),
 	),
